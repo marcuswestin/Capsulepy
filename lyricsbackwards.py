@@ -1,4 +1,7 @@
-file = open("./Whatcomesnext.txt", 'r')
+import os 
+dir_path = os.path.dirname(__file__)
+
+file = open(dir_path + "/Whatcomesnext.txt", 'r')
 lyrics = file.read()
 
 
