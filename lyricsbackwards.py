@@ -61,12 +61,38 @@ print("##### these are the words on each line reversed #####")
 print(reverse_words_per_line(lyrics))
 
 
+#This next part isn't quite working and I'm not sure why. The capitalize funciton is not working and I also want to move the punctuation
 import random
+import string
 def randomize_words_per_line(lyrics):
-    words_with_linebreaks = lyrics.split(' ')
-    space_separated_random = ' '.join(random.shuffle(words_with_linebreaks))
-    return space_separated_random # this block is not working
-
+    #You're on your own
+    #Do you know how hard it is to lead?
+    lines = lyrics.splitlines()
+    # ['You're on your own', 'Do you know how hard it is to lead?']
+    random_lines = []
+    # []
+    for line in lines:
+        words = line.split(' ')
+        #['You're','on'. '...']
+        #['Do','you' '...']
+        random.shuffle(words)
+        #['own','You're']
+        #['lead?','Do']
+        random_line = ' '.join(words)
+        #'own You're ...'
+        #'lead Do ...'
+        random_line.lower()
+        #'own you're ...'
+        #'lead do ...'
+        random_line.capitalize() 
+        #'Own you're ...'
+        #'Lead do ...'
+        random_lines.append(random_line)
+        #['Own you're ...']
+        #['Lead do']
+     
+    lines_joined = '\n'.join(random_lines)
+    return lines_joined
 
 print("##### these are the words on each line randomized #####")
 print(randomize_words_per_line(lyrics))
