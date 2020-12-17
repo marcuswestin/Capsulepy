@@ -36,10 +36,26 @@ print("##### these are the lines reversed #####")
 print(reverse_lines(lyrics))
 
 def reverse_words_per_line(lyrics):
-    words_with_linebreaks = lyrics.split(' ')
-    space_separated_reversed = ' '.join(reversed(words_with_linebreaks))
-    return space_separated_reversed # this block is not working
-
+    # 'they say ...'
+    lines = lyrics.splitlines()
+    # ['they say', ...]
+    reversed_lines = []
+    # []
+    for line in lines:
+        words = line.split(' ')
+        #['they','say']
+        #['oceans','rise']
+        words.reverse()
+        #['say','they']
+        #['rise','oceans']
+        reverse_line = ' '.join(words)
+        #'say they'
+        #'rise oceans'
+        reversed_lines.append(reverse_line)
+        #['say they']
+        #['say they','rise oceans']
+    lines_joined = '\n'.join(reversed_lines)
+    return lines_joined
 
 print("##### these are the words on each line reversed #####")
 print(reverse_words_per_line(lyrics))
